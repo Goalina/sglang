@@ -1,0 +1,16 @@
+name: Test Workflow Dispatch (Branch Only)
+
+on:
+  workflow_dispatch:
+    inputs:
+      message:
+        description: 'A test message'
+        required: false
+        default: 'hello from branch'
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Print message
+        run: echo "Triggered with message: ${{ inputs.message }}"
